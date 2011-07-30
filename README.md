@@ -35,6 +35,6 @@ This script will easily scan through a directory of photos and copy them to a ne
 * rake stuffen:copy['/mypath/to/photos', '/mypath/to/new/location']
 
 
-# Limitaions 
+# Limitations 
 * only handles jpg files
 * only first photo in directory will be used for date
