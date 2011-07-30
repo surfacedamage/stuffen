@@ -15,10 +15,14 @@ namespace :stuffen do
   desc "Copy photos to tree structure organized by year"
   task :copy, [:from, :to] => :setup do |task|
     non_year_directories.each do |dir|
-      puts "Copying: #{dir}"
-      source      = File.join(dir, ".")
-      destination = FileUtils.mkdir_p(destination_path(dir))
-      FileUtils.cp_r(source, destination)
+      begin
+        puts "Copying: #{dir}"
+        source      = File.join(dir, ".")
+        destination = FileUtils.mkdir_p(destination_path(dir))
+        FileUtils.cp_r(source, destination)
+      rescue Exception => e
+        puts "  -- #{e.message}"
+      end
     end
   end
 
@@ -35,7 +39,11 @@ namespace :stuffen do
   end
 
   def jpg_image_date(file)
-    EXIFR::JPEG.new(file).date_time
+    begin
+      EXIFR::JPEG.new(file).date_time
+    rescue Exception => e
+      raise "Unable to find valid photo creation date"
+    end
   end
 
   def destination_path(dir)
