@@ -12,11 +12,16 @@ This script will easily scan through a directory of photos and copy them to a ne
   - Driving a boat like a boss wearing a cat hat
     - on the boat.jpg
     - description.txt
+  - 2011
+    - 2011-06-14 - An old properly organized album
+      - crashing a boat.jpg
 
 
 ### Becomes this:
 
   - 2011
+    - 2011-06-14 - An old properly organized album
+      - crashing a boat.jpg
     - 2011-05-13 - Birthday at Aunt Susies
       - photo1.jpg
       - photo2.jpg
